@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,18 +11,22 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
     background: #05091f;
     color: white;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 30px 0 60px;
 }
 
+/* MOON */
 .moon {
     position: fixed;
     top: 35px;
@@ -34,8 +38,10 @@ body {
     box-shadow:
         0 0 15px #bde7ff,
         0 0 45px #4aaeff;
+    z-index: 0;
 }
 
+/* STARS */
 .star {
     position: fixed;
     width: 3px;
@@ -44,6 +50,7 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 10px #75caff;
     animation: sparkle 2s infinite alternate;
+    z-index: 0;
 }
 
 .star1 { top: 10%; left: 15%; }
@@ -67,9 +74,13 @@ body {
     }
 }
 
+/* QUESTION BOX */
 .box {
+    position: relative;
+    z-index: 2;
     width: 88%;
     max-width: 420px;
+    margin: 0 auto;
     padding: 32px 24px;
     text-align: center;
     background: #080f30;
@@ -99,6 +110,7 @@ p {
     margin-top: 18px;
 }
 
+/* BUTTONS */
 button {
     width: 100%;
     padding: 14px;
@@ -109,6 +121,7 @@ button {
     color: white;
     font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 button:active {
@@ -116,10 +129,12 @@ button:active {
     box-shadow: 0 0 20px #4db9ff;
 }
 
+/* HIDDEN */
 .hidden {
     display: none;
 }
 
+/* WRONG ANSWER */
 .wrong {
     color: #8fd4ff;
     font-weight: bold;
@@ -133,10 +148,87 @@ button:active {
     75% { transform: translateX(-7px); }
     100% { transform: translateX(0); }
 }
+
+/* MEMORY SECTION */
+.memory-gallery {
+    position: relative;
+    z-index: 2;
+    width: 88%;
+    max-width: 420px;
+    margin: 45px auto 0;
+    padding: 30px 20px;
+    text-align: center;
+    background: #080f30;
+    border: 1px solid #2f82c7;
+    border-radius: 28px;
+    box-shadow: 0 0 30px rgba(50,150,255,.3);
+}
+
+.memory-gallery h2 {
+    color: #dff6ff;
+    font-size: 25px;
+    text-shadow: 0 0 12px #55baff;
+    margin-bottom: 30px;
+}
+
+.memory-intro {
+    color: #8fd4ff;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.photo-show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.photo-card {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(35px) scale(.94);
+    animation: memoryAppear 1.5s ease forwards;
+}
+
+.photo-card img {
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+    border: 1px solid #58baff;
+    box-shadow: 0 0 20px rgba(80,180,255,.3);
+}
+
+.photo-card:nth-child(1) { animation-delay: .3s; }
+.photo-card:nth-child(2) { animation-delay: 1s; }
+.photo-card:nth-child(3) { animation-delay: 1.7s; }
+.photo-card:nth-child(4) { animation-delay: 2.4s; }
+.photo-card:nth-child(5) { animation-delay: 3.1s; }
+.photo-card:nth-child(6) { animation-delay: 3.8s; }
+.photo-card:nth-child(7) { animation-delay: 4.5s; }
+.photo-card:nth-child(8) { animation-delay: 5.2s; }
+.photo-card:nth-child(9) { animation-delay: 5.9s; }
+
+@keyframes memoryAppear {
+
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(.94);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 </style>
 </head>
 
 <body>
+
+<!-- STARS -->
 
 <div class="star star1"></div>
 <div class="star star2"></div>
@@ -147,311 +239,433 @@ button:active {
 <div class="star star7"></div>
 <div class="star star8"></div>
 
+<!-- MOON -->
+
 <div class="moon"></div>
+
+
+<!-- QUESTIONS -->
 
 <div class="box">
 
+<!-- PAGE 1 -->
+
 <div id="page1">
-    <div class="emoji">👽</div>
 
-    <h1>
-        Welcome to our world, Mindless Alien 👽
-    </h1>
+<div class="emoji">👽</div>
 
-    <p>
-        And so... everything begins. 🌙✨
-    </p>
+<h1>
+Welcome to our world, Mindless Alien 👽
+</h1>
 
-    <button onclick="showPage(2)">
-        Continue →
-    </button>
+<p>
+And so... everything begins. 🌙✨
+</p>
+
+<button onclick="showPage(2)">
+Continue →
+</button>
+
 </div>
 
+
+<!-- PAGE 2 -->
 
 <div id="page2" class="hidden">
-    <div class="emoji">🦎</div>
 
-    <h1>
-        Important question...
-    </h1>
+<div class="emoji">🦎</div>
 
-    <p>
-        So who is your favorite — me or the lizard?
-    </p>
+<h1>
+Important question...
+</h1>
 
-    <button onclick="showPage(3)">
-        Me 💙
-    </button>
+<p>
+So who is your favorite — me or the lizard?
+</p>
 
-    <button onclick="showPage(3)">
-        Me 😭
-    </button>
+<button onclick="showPage(3)">
+Me 💙
+</button>
 
-    <p class="flirty">
-        Choose carefully... the lizard is watching. 👀
-    </p>
+<button onclick="showPage(3)">
+Me 😭
+</button>
+
+<p class="flirty">
+Choose carefully... the lizard is watching. 👀
+</p>
+
 </div>
 
+
+<!-- PAGE 3 -->
 
 <div id="page3" class="hidden">
-    <div class="emoji">👽</div>
 
-    <h1>
-        Be honest...
-    </h1>
+<div class="emoji">👽</div>
 
-    <p>
-        Are you mindless?
-    </p>
+<h1>
+Be honest...
+</h1>
 
-    <button onclick="showPage(4)">
-        Yes 👽
-    </button>
+<p>
+Are you mindless?
+</p>
 
-    <button onclick="wrongAnswer()">
-        No 😌
-    </button>
+<button onclick="showPage(4)">
+Yes 👽
+</button>
 
-    <p id="wrong" class="wrong hidden">
-        Wrong answer 😭
-    </p>
+<button onclick="wrongAnswer()">
+No 😌
+</button>
+
+<p id="wrong" class="wrong hidden">
+Wrong answer 😭
+</p>
+
 </div>
 
+
+<!-- PAGE 4 -->
 
 <div id="page4" class="hidden">
-    <div class="emoji">🎨</div>
 
-    <h1>
-        One more thing...
-    </h1>
+<div class="emoji">🎨</div>
 
-    <p>
-        What is your fav color?
-    </p>
+<h1>
+One more thing...
+</h1>
 
-    <button onclick="showPage(5)">
-        Pink 🩷
-    </button>
+<p>
+What is your fav color?
+</p>
 
-    <button onclick="showPage(5)">
-        Blue 💙
-    </button>
+<button onclick="showPage(5)">
+Pink 🩷
+</button>
 
-    <button onclick="showPage(5)">
-        Black 🖤
-    </button>
+<button onclick="showPage(5)">
+Blue 💙
+</button>
+
+<button onclick="showPage(5)">
+Black 🖤
+</button>
+
 </div>
 
+
+<!-- PAGE 5 -->
 
 <div id="page5" class="hidden">
-    <div class="emoji">🌙</div>
 
-    <h1>
-        Now be honest... 👀
-    </h1>
+<div class="emoji">🌙</div>
 
-    <p>
-        Who looks better under the moonlight?
-    </p>
+<h1>
+Now be honest... 👀
+</h1>
 
-    <p class="flirty">
-        Think carefully... your answer might matter. 😌✨
-    </p>
+<p>
+Who looks better under the moonlight?
+</p>
 
-    <button onclick="showPage(6)">
-        You, obviously 💙
-    </button>
+<p class="flirty">
+Think carefully... your answer might matter. 😌✨
+</p>
 
-    <button onclick="showPage(6)">
-        The moon 🌙
-    </button>
+<button onclick="showPage(6)">
+You, obviously 💙
+</button>
 
-    <button onclick="showPage(6)">
-        I'm not answering that 😭
-    </button>
+<button onclick="showPage(6)">
+The moon 🌙
+</button>
+
+<button onclick="showPage(6)">
+I'm not answering that 😭
+</button>
+
 </div>
 
+
+<!-- PAGE 6 -->
 
 <div id="page6" class="hidden">
-    <div class="emoji">💙</div>
 
-    <h1>
-        Tell me honestly...
-    </h1>
+<div class="emoji">💙</div>
 
-    <p>
-        What do you think about me?
-    </p>
+<h1>
+Tell me honestly...
+</h1>
 
-    <button onclick="showPage(7)">
-        Good person 🌙
-    </button>
+<p>
+What do you think about me?
+</p>
 
-    <button onclick="showPage(7)">
-        Favorite person ✨
-    </button>
+<button onclick="showPage(7)">
+Good person 🌙
+</button>
 
-    <button onclick="showPage(7)">
-        Mine person 👀
-    </button>
+<button onclick="showPage(7)">
+Favorite person ✨
+</button>
 
-    <p class="flirty">
-        Hmm... interesting answer. I'm listening. 😌
-    </p>
+<button onclick="showPage(7)">
+Mine person 👀
+</button>
+
+<p class="flirty">
+Hmm... interesting answer. I'm listening. 😌
+</p>
+
 </div>
 
+
+<!-- PAGE 7 -->
 
 <div id="page7" class="hidden">
-    <div class="emoji">🐡</div>
 
-    <h1>
-        Knock knock...
-    </h1>
+<div class="emoji">🐡</div>
 
-    <p>
-        Who is there?
-    </p>
+<h1>
+Knock knock...
+</h1>
 
-    <button onclick="showPage(8)">
-        Pufferfish 🐡
-    </button>
+<p>
+Who is there?
+</p>
+
+<button onclick="showPage(8)">
+Pufferfish 🐡
+</button>
+
 </div>
 
+
+<!-- PAGE 8 -->
 
 <div id="page8" class="hidden">
-    <div class="emoji">🌌</div>
 
-    <h1>
-        Pufferfish who?
-    </h1>
+<div class="emoji">🌌</div>
 
-    <p>
-        Pufferfish... never mind. 😭🐡
-    </p>
+<h1>
+Pufferfish who?
+</h1>
 
-    <p class="flirty">
-        Okay, that was terrible. Let's move on. 👀
-    </p>
+<p>
+Pufferfish... never mind. 😭🐡
+</p>
 
-    <button onclick="showPage(9)">
-        Continue 🌙
-    </button>
+<p class="flirty">
+Okay, that was terrible. Let's move on. 👀
+</p>
+
+<button onclick="showPage(9)">
+Continue 🌙
+</button>
+
 </div>
 
+
+<!-- PAGE 9 -->
 
 <div id="page9" class="hidden">
-    <div class="emoji">🌙</div>
 
-    <h1>
-        마지막 질문
-    </h1>
+<div class="emoji">🌙</div>
 
-    <p>
-        혹시 나를 사랑하나요?
-    </p>
+<h1>
+마지막 질문
+</h1>
 
-    <p class="flirty">
-        One last answer... choose wisely. 👀💙
-    </p>
+<p>
+혹시 나를 사랑하나요?
+</p>
 
-    <button onclick="finalAnswer('yes')">
-        Yes 💙
-    </button>
+<p class="flirty">
+One last answer... choose wisely. 👀💙
+</p>
 
-    <button onclick="finalAnswer('no')">
-        No 🥲
-    </button>
+<button onclick="finalAnswer('yes')">
+Yes 💙
+</button>
 
-    <button onclick="finalAnswer('obviously')">
-        Obviously 😭✨
-    </button>
+<button onclick="finalAnswer('no')">
+No 🥲
+</button>
+
+<button onclick="finalAnswer('obviously')">
+Obviously 😭✨
+</button>
+
 </div>
 
+
+<!-- PAGE 10 -->
 
 <div id="page10" class="hidden">
-    <div class="emoji">💙</div>
 
-    <h1 id="finalTitle">
-        Our little universe 🌙
-    </h1>
+<div class="emoji">💙</div>
 
-    <p id="finalText">
-        Under the same moon,<br>
-        somewhere between the stars,<br>
-        our little universe continues. ✨
-    </p>
+<h1 id="finalTitle">
+Our little universe 🌙
+</h1>
+
+<p id="finalText">
+Under the same moon,<br>
+somewhere between the stars,<br>
+our little universe continues. ✨
+</p>
+
 </div>
 
 </div>
+
+
+<!-- MEMORY GALLERY -->
+
+<section class="memory-gallery">
+
+<h2>
+Our Little Memories 🌙🐞
+</h2>
+
+<p class="memory-intro">
+A tiny collection of moments from our little universe. ✨
+</p>
+
+<div class="photo-show">
+
+<div class="photo-card">
+<img src="images/IMG-20250819-WA0020.jpg" alt="Memory 1">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-1267893355.jpg" alt="Memory 2">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-1737000413.jpg" alt="Memory 3">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-193420270.jpg" alt="Memory 4">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-21432401.jpg" alt="Memory 5">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-55540618.jpg" alt="Memory 6">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-578601478.jpg" alt="Memory 7">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-652614665.jpg" alt="Memory 8">
+</div>
+
+<div class="photo-card">
+<img src="images/Snapchat-969088174.jpg" alt="Memory 9">
+</div>
+
+</div>
+
+</section>
 
 
 <script>
 
 function showPage(number) {
 
-    for (let i = 1; i <= 10; i++) {
-        document
-            .getElementById("page" + i)
-            .classList.add("hidden");
-    }
+for (let i = 1; i <= 10; i++) {
 
-    document
-        .getElementById("page" + number)
-        .classList.remove("hidden");
+document
+.getElementById("page" + i)
+.classList.add("hidden");
+
+}
+
+document
+.getElementById("page" + number)
+.classList.remove("hidden");
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
 }
 
 
 function wrongAnswer() {
 
-    let message = document.getElementById("wrong");
+let message =
+document.getElementById("wrong");
 
-    message.classList.remove("hidden");
+message.classList.remove("hidden");
 
-    setTimeout(function() {
-        message.classList.add("hidden");
-    }, 1800);
+setTimeout(function() {
+
+message.classList.add("hidden");
+
+}, 1800);
+
 }
 
 
 function finalAnswer(answer) {
 
-    let title = document.getElementById("finalTitle");
-    let text = document.getElementById("finalText");
+let title =
+document.getElementById("finalTitle");
 
-    if (answer === "yes") {
+let text =
+document.getElementById("finalText");
 
-        title.innerHTML =
-            "I knew it. 💙🌙";
 
-        text.innerHTML =
-            "The moon already knew your answer. ✨<br><br>" +
-            "Maybe some things really are written in the stars.";
-    }
+if (answer === "yes") {
 
-    else if (answer === "no") {
+title.innerHTML =
+"I knew it. 💙🌙";
 
-        title.innerHTML =
-            "Ouch... 🥲";
+text.innerHTML =
+"The moon already knew your answer. ✨<br><br>" +
+"Maybe some things really are written in the stars.";
 
-        text.innerHTML =
-            "The stars heard that answer...<br><br>" +
-            "I'll pretend I didn't. 🌙😭";
-    }
+}
 
-    else {
 
-        title.innerHTML =
-            "Obviously?! 😭💙";
+else if (answer === "no") {
 
-        text.innerHTML =
-            "Okay, okay... you didn't have to make it that obvious. 👀<br><br>" +
-            "The moon definitely saw that coming. 🌙✨";
-    }
+title.innerHTML =
+"Ouch... 🥲";
 
-    showPage(10);
+text.innerHTML =
+"The stars heard that answer...<br><br>" +
+"I'll pretend I didn't. 🌙😭";
+
+}
+
+
+else {
+
+title.innerHTML =
+"Obviously?! 😭💙";
+
+text.innerHTML =
+"Okay, okay... you didn't have to make it that obvious. 👀<br><br>" +
+"The moon definitely saw that coming. 🌙✨";
+
+}
+
+showPage(10);
+
 }
 
 </script>
 
 </body>
-        </html>
+    </html>
