@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Little Universe 🌙</title>
+<title>Our Little Universe 🌙</title>
 
 <style>
 
@@ -39,9 +39,7 @@ body {
         );
 }
 
-/* =========================
-   STARS
-========================= */
+/* STARS */
 
 .star {
     position: absolute;
@@ -81,14 +79,15 @@ body {
         opacity: 1;
         transform: scale(1.5);
     }
+
 }
 
-/* =========================
-   MOON
-========================= */
+/* MOON */
 
 .moon {
+
     position: absolute;
+
     top: 7%;
     right: 10%;
 
@@ -105,15 +104,16 @@ body {
         0 0 110px rgba(80,160,255,.35);
 }
 
-/* =========================
-   PAGES
-========================= */
+/* PAGES */
 
 .page {
+
     position: absolute;
+
     inset: 0;
 
     display: flex;
+
     justify-content: center;
     align-items: center;
 
@@ -127,28 +127,36 @@ body {
 }
 
 .page.active {
+
     opacity: 1;
     visibility: visible;
 }
 
-/* =========================
-   OPENING
-========================= */
+/* OPENING */
 
 .opening {
+
     width: 90%;
-    animation: fadeUp 3s ease;
+
+    animation:
+        fadeUp 3s ease;
 }
 
 .small {
+
     color: #a9d9ff;
+
     letter-spacing: 3px;
+
     font-size: 12px;
 }
 
 .opening h1 {
+
     font-size: 27px;
+
     line-height: 1.5;
+
     font-weight: normal;
 
     text-shadow:
@@ -159,29 +167,38 @@ body {
 @keyframes fadeUp {
 
     from {
+
         opacity: 0;
-        transform: translateY(30px);
+
+        transform:
+            translateY(30px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
+
 }
 
-/* =========================
-   GROUND
-========================= */
+/* GROUND */
 
 .ground {
+
     position: absolute;
 
     bottom: -45px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 130%;
+
     height: 130px;
 
     border-radius: 50%;
@@ -192,14 +209,14 @@ body {
         0 -10px 40px rgba(60,160,255,.25);
 }
 
-/* =========================
-   POLAR BEAR
-========================= */
+/* BEAR */
 
 .bear {
+
     position: absolute;
 
     bottom: 50px;
+
     left: -150px;
 
     font-size: 85px;
@@ -211,19 +228,21 @@ body {
 @keyframes bearWalk {
 
     0% {
+
         left: -150px;
     }
 
     100% {
+
         left: 38%;
     }
+
 }
 
-/* =========================
-   MESSAGE
-========================= */
+/* MESSAGE */
 
 .waiting {
+
     position: absolute;
 
     bottom: 175px;
@@ -241,18 +260,20 @@ body {
 @keyframes messageAppear {
 
     to {
+
         opacity: 1;
     }
+
 }
 
-/* =========================
-   LADYBUG
-========================= */
+/* LADYBUG */
 
 .ladybug {
+
     position: absolute;
 
     top: 43%;
+
     right: -100px;
 
     font-size: 55px;
@@ -264,24 +285,31 @@ body {
 @keyframes ladybugFly {
 
     0% {
+
         right: -100px;
-        transform: rotate(10deg);
+
+        transform:
+            rotate(10deg);
     }
 
     100% {
+
         right: 31%;
-        transform: rotate(0);
+
+        transform:
+            rotate(0);
     }
+
 }
 
-/* =========================
-   BOUQUET
-========================= */
+/* BOUQUET */
 
 .bouquet {
+
     position: absolute;
 
     bottom: 145px;
+
     right: 15%;
 
     font-size: 65px;
@@ -295,22 +323,29 @@ body {
 @keyframes bouquetAppear {
 
     from {
+
         opacity: 0;
-        transform: scale(.4);
+
+        transform:
+            scale(.4);
     }
 
     to {
+
         opacity: 1;
-        transform: scale(1);
+
+        transform:
+            scale(1);
     }
+
 }
 
-/* =========================
-   MEMORIES
-========================= */
+/* MEMORIES */
 
 .album {
+
     width: 90%;
+
     max-width: 390px;
 
     max-height: 78vh;
@@ -335,26 +370,34 @@ body {
 @keyframes albumOpen {
 
     from {
+
         opacity: 0;
+
         transform:
             rotate(-7deg)
             scale(.5);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             rotate(-1deg)
             scale(1);
     }
+
 }
 
 .album h2 {
+
     margin-top: 0;
+
     font-size: 23px;
 }
 
 .memory-photo {
+
     width: 100%;
 
     margin: 14px 0;
@@ -370,7 +413,9 @@ body {
 }
 
 .memory-photo img {
+
     width: 100%;
+
     height: auto;
 
     display: block;
@@ -378,12 +423,12 @@ body {
     border-radius: 4px;
 }
 
-/* =========================
-   LETTER
-========================= */
+/* LETTER */
 
 .letter {
+
     width: 88%;
+
     max-width: 420px;
 
     max-height: 78vh;
@@ -408,39 +453,48 @@ body {
 @keyframes letterOpen {
 
     from {
+
         opacity: 0;
+
         transform:
             scale(.7)
             rotate(-4deg);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             scale(1)
             rotate(-1deg);
     }
+
 }
 
 .letter h2 {
+
     font-size: 24px;
 }
 
 .letter p {
+
     font-size: 16px;
+
     line-height: 1.7;
 }
 
 .signature {
+
     margin-top: 22px;
+
     font-style: italic;
 }
 
-/* =========================
-   SKY
-========================= */
+/* SKY */
 
 .skyText {
+
     width: 85%;
 
     font-size: 22px;
@@ -454,15 +508,15 @@ body {
         fadeUp 3s ease;
 }
 
-/* =========================
-   FINAL
-========================= */
+/* FINAL */
 
 .final {
+
     flex-direction: column;
 }
 
 .finalWord {
+
     font-size: 48px;
 
     letter-spacing: 7px;
@@ -478,6 +532,7 @@ body {
 }
 
 .finalText {
+
     margin-top: 22px;
 
     width: 85%;
@@ -492,64 +547,27 @@ body {
 @keyframes finalGlow {
 
     from {
+
         opacity: .55;
-        transform: scale(.97);
+
+        transform:
+            scale(.97);
     }
 
     to {
+
         opacity: 1;
-        transform: scale(1.04);
+
+        transform:
+            scale(1.04);
     }
+
 }
 
-/* =========================
-   MUSIC
-========================= */
-
-.music-box {
-    position: fixed;
-
-    left: 50%;
-    bottom: 12px;
-
-    transform:
-        translateX(-50%);
-
-    z-index: 999;
-
-    width: 92%;
-    max-width: 360px;
-
-    padding: 8px;
-
-    border-radius: 15px;
-
-    background:
-        rgba(2,5,22,.92);
-
-    box-shadow:
-        0 5px 25px rgba(0,0,0,.5);
-}
-
-.music-title {
-    text-align: center;
-
-    font-size: 12px;
-
-    color: #a9d9ff;
-
-    margin-bottom: 5px;
-}
-
-audio {
-    width: 100%;
-}
-
-/* =========================
-   FLOATING STARS
-========================= */
+/* FLOATING STARS */
 
 .float {
+
     position: absolute;
 
     bottom: -30px;
@@ -568,39 +586,51 @@ audio {
 
 .f2 {
     left: 45%;
+
     animation-delay: 2s;
 }
 
 .f3 {
     left: 75%;
+
     animation-delay: 4s;
 }
 
 @keyframes floatUp {
 
     0% {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
         opacity: 0;
     }
 
     20% {
+
         opacity: .8;
     }
 
     100% {
+
         transform:
             translateY(-100vh);
+
         opacity: 0;
     }
+
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+
 <div class="scene">
+
 
 <div class="moon"></div>
 
@@ -621,9 +651,7 @@ audio {
 <div class="star s12"></div>
 
 
-<!-- =========================
-     SCENE 1
-========================= -->
+<!-- SCENE 1 -->
 
 <section
 class="page active"
@@ -632,7 +660,9 @@ id="scene1">
 <div class="opening">
 
 <div class="small">
+
 TONIGHT, UNDER THE SAME MOON...
+
 </div>
 
 <h1>
@@ -648,9 +678,7 @@ a little less ordinary. 🌙
 </section>
 
 
-<!-- =========================
-     SCENE 2
-========================= -->
+<!-- SCENE 2 -->
 
 <section
 class="page"
@@ -659,7 +687,9 @@ id="scene2">
 <div class="ground"></div>
 
 <div class="bear">
+
 🐻‍❄️
+
 </div>
 
 <div class="waiting">
@@ -671,9 +701,7 @@ Someone has been waiting for you... 🌙
 </section>
 
 
-<!-- =========================
-     SCENE 3
-========================= -->
+<!-- SCENE 3 -->
 
 <section
 class="page"
@@ -690,11 +718,15 @@ style="left:38%; animation:none;">
 </div>
 
 <div class="ladybug">
+
 🐞
+
 </div>
 
 <div class="bouquet">
+
 💐
+
 </div>
 
 <div
@@ -708,9 +740,7 @@ A little surprise for a very special day. ✨
 </section>
 
 
-<!-- =========================
-     SCENE 4
-========================= -->
+<!-- SCENE 4 -->
 
 <section
 class="page"
@@ -719,7 +749,9 @@ id="scene4">
 <div class="album">
 
 <h2>
+
 Our Little Memories 🌙🐞
+
 </h2>
 
 
@@ -815,9 +847,7 @@ A few moments worth keeping forever. ✨
 </section>
 
 
-<!-- =========================
-     SCENE 5
-========================= -->
+<!-- SCENE 5 -->
 
 <section
 class="page"
@@ -826,7 +856,9 @@ id="scene5">
 <div class="letter">
 
 <h2>
+
 Happy Birthday, little ladybug 🐞🎂
+
 </h2>
 
 
@@ -906,9 +938,7 @@ universe just for you. ✨
 </section>
 
 
-<!-- =========================
-     SCENE 6
-========================= -->
+<!-- SCENE 6 -->
 
 <section
 class="page"
@@ -931,9 +961,7 @@ Maybe that's what makes people special.
 </section>
 
 
-<!-- =========================
-     SCENE 7
-========================= -->
+<!-- SCENE 7 -->
 
 <section
 class="page final"
@@ -967,32 +995,6 @@ Happy Birthday, little ladybug. 🐞💙
 <div class="float f3">✦</div>
 
 
-<!-- =========================
-     MUSIC PLAYER
-========================= -->
-
-<div class="music-box">
-
-<div class="music-title">
-🎵 Dreams - Sped Up
-</div>
-
-<audio
-controls
-loop
-preload="metadata">
-
-<source
-src="Dreams%20-%20Sped%20Up.mp3"
-type="audio/mpeg">
-
-Your browser does not support audio.
-
-</audio>
-
-</div>
-
-
 </div>
 
 
@@ -1002,6 +1004,7 @@ function showScene(number) {
 
     var scenes =
         document.querySelectorAll(".page");
+
 
     for (
         var i = 0;
@@ -1015,10 +1018,12 @@ function showScene(number) {
 
     }
 
+
     var next =
         document.getElementById(
             "scene" + number
         );
+
 
     if (next) {
 
@@ -1027,10 +1032,11 @@ function showScene(number) {
         );
 
     }
+
 }
 
 
-/* CINEMATIC TIMELINE */
+/* AUTOMATIC TIMELINE */
 
 setTimeout(function() {
 
@@ -1053,8 +1059,6 @@ setTimeout(function() {
 }, 19000);
 
 
-/* EXTRA TIME FOR PHOTOS */
-
 setTimeout(function() {
 
     showScene(5);
@@ -1076,6 +1080,7 @@ setTimeout(function() {
 }, 52000);
 
 </script>
+
 
 </body>
 
