@@ -13,8 +13,8 @@ html, body {
     height: 100%;
     overflow: hidden;
     background: #020516;
-    font-family: Georgia, serif;
     color: white;
+    font-family: Georgia, serif;
 }
 
 .scene {
@@ -23,25 +23,7 @@ html, body {
     height: 100vh;
     overflow: hidden;
     background:
-        radial-gradient(circle at 75% 20%, #14275c 0%, #070d2b 35%, #020516 75%);
-}
-
-/* MOON */
-
-.moon {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    top: 8%;
-    right: 12%;
-    background: #eef9ff;
-    box-shadow:
-        0 0 20px #d8f3ff,
-        0 0 60px #6dbdff,
-        0 0 120px rgba(90,170,255,.35);
-    opacity: 0;
-    animation: moonAppear 4s ease forwards;
+        radial-gradient(circle at 75% 15%, #19356f 0%, #080f31 40%, #020516 85%);
 }
 
 /* STARS */
@@ -50,106 +32,345 @@ html, body {
     position: absolute;
     width: 3px;
     height: 3px;
-    background: white;
     border-radius: 50%;
-    opacity: 0;
-    animation: starAppear 2s ease forwards, twinkle 2s ease-in-out infinite alternate;
+    background: white;
+    box-shadow: 0 0 10px #8fd4ff;
+    animation: twinkle 2s infinite alternate;
 }
 
-.s1 { top: 15%; left: 15%; animation-delay: 1s; }
-.s2 { top: 28%; left: 35%; animation-delay: 1.4s; }
-.s3 { top: 12%; left: 60%; animation-delay: 1.8s; }
-.s4 { top: 40%; left: 80%; animation-delay: 2.1s; }
-.s5 { top: 65%; left: 12%; animation-delay: 2.4s; }
-.s6 { top: 75%; left: 75%; animation-delay: 2.7s; }
-.s7 { top: 52%; left: 50%; animation-delay: 3s; }
-.s8 { top: 85%; left: 35%; animation-delay: 3.3s; }
-.s9 { top: 22%; left: 90%; animation-delay: 3.6s; }
-.s10 { top: 60%; left: 92%; animation-delay: 3.9s; }
-
-/* TEXT */
-
-.intro {
-    position: absolute;
-    width: 90%;
-    left: 5%;
-    top: 43%;
-    text-align: center;
-    opacity: 0;
-    animation: introAppear 3s ease 4s forwards;
-}
-
-.intro p {
-    margin: 8px 0;
-    font-size: 15px;
-    letter-spacing: 3px;
-    color: #a9cfff;
-}
-
-.intro h1 {
-    margin: 15px 0;
-    font-size: 27px;
-    line-height: 1.4;
-    font-weight: normal;
-    text-shadow: 0 0 18px #78bfff;
-}
-
-/* LITTLE GLOW */
-
-.glow {
-    position: absolute;
-    width: 220px;
-    height: 80px;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(60,140,255,.18);
-    filter: blur(35px);
-}
-
-/* ANIMATIONS */
-
-@keyframes moonAppear {
-    from {
-        opacity: 0;
-        transform: scale(.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes starAppear {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+.s1 { top: 10%; left: 12%; }
+.s2 { top: 18%; left: 30%; }
+.s3 { top: 12%; left: 53%; }
+.s4 { top: 25%; left: 87%; }
+.s5 { top: 42%; left: 8%; }
+.s6 { top: 55%; left: 91%; }
+.s7 { top: 72%; left: 18%; }
+.s8 { top: 80%; left: 75%; }
+.s9 { top: 63%; left: 52%; }
+.s10 { top: 35%; left: 65%; }
+.s11 { top: 88%; left: 40%; }
+.s12 { top: 48%; left: 35%; }
 
 @keyframes twinkle {
     from {
-        transform: scale(.7);
-        opacity: .35;
+        opacity: .25;
+        transform: scale(.6);
     }
     to {
-        transform: scale(1.5);
         opacity: 1;
+        transform: scale(1.5);
     }
 }
 
-@keyframes introAppear {
+/* MOON */
+
+.moon {
+    position: absolute;
+    top: 7%;
+    right: 10%;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background: #effaff;
+    box-shadow:
+        0 0 20px #d9f4ff,
+        0 0 55px #62baff,
+        0 0 110px rgba(80,160,255,.35);
+}
+
+/* PAGES */
+
+.page {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* OPENING */
+
+.opening {
+    width: 90%;
+    animation: openingFade 3s ease;
+}
+
+.small {
+    color: #a9d9ff;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.opening h1 {
+    font-size: 28px;
+    line-height: 1.5;
+    font-weight: normal;
+    text-shadow: 0 0 20px #6dbfff;
+}
+
+@keyframes openingFade {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(25px);
     }
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* GROUND */
+
+.ground {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130%;
+    height: 130px;
+    border-radius: 50%;
+    background: #06152a;
+    box-shadow: 0 -10px 40px rgba(60,160,255,.25);
+}
+
+/* BEAR */
+
+.bear {
+    position: absolute;
+    bottom: 50px;
+    left: -140px;
+    font-size: 90px;
+    animation: bearWalk 5s ease forwards;
+}
+
+@keyframes bearWalk {
+    0% {
+        left: -140px;
+    }
+    100% {
+        left: 38%;
+    }
+}
+
+.waiting {
+    position: absolute;
+    bottom: 175px;
+    width: 100%;
+    font-size: 20px;
+    opacity: 0;
+    animation: messageAppear 2s ease 4s forwards;
+}
+
+@keyframes messageAppear {
+    to {
+        opacity: 1;
+    }
+}
+
+/* LADYBUG */
+
+.ladybug {
+    position: absolute;
+    top: 43%;
+    right: -80px;
+    font-size: 55px;
+    animation: ladybugFly 4s ease forwards;
+}
+
+@keyframes ladybugFly {
+    0% {
+        right: -80px;
+        transform: rotate(10deg);
+    }
+    100% {
+        right: 32%;
+        transform: rotate(0);
+    }
+}
+
+/* BOUQUET */
+
+.bouquet {
+    position: absolute;
+    bottom: 145px;
+    right: 15%;
+    font-size: 65px;
+    opacity: 0;
+    animation: bouquetAppear 2s ease 3s forwards;
+}
+
+@keyframes bouquetAppear {
+    from {
+        opacity: 0;
+        transform: scale(.4);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ALBUM */
+
+.album {
+    width: 300px;
+    padding: 22px;
+    background: #f3e6ca;
+    color: #30251c;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+    transform: rotate(-2deg) scale(.3);
+    animation: albumOpen 2s ease forwards;
+}
+
+@keyframes albumOpen {
+    from {
+        opacity: 0;
+        transform: rotate(-8deg) scale(.3);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(-2deg) scale(1);
+    }
+}
+
+.album h2 {
+    margin-top: 0;
+}
+
+.photo {
+    height: 105px;
+    margin: 10px 0;
+    border: 4px solid white;
+    background: linear-gradient(135deg,#8bc8e8,#e7d2ad);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    font-family: Arial,sans-serif;
+    font-size: 14px;
+}
+
+/* LETTER */
+
+.letter {
+    width: 88%;
+    max-width: 420px;
+    max-height: 80vh;
+    overflow: auto;
+    padding: 28px 23px;
+    background: #f7efd9;
+    color: #33291f;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+    animation: letterOpen 2s ease forwards;
+}
+
+@keyframes letterOpen {
+    from {
+        opacity: 0;
+        transform: scale(.7) rotate(-4deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(-1deg);
+    }
+}
+
+.letter h2 {
+    font-size: 24px;
+}
+
+.letter p {
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.signature {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* SKY */
+
+.skyText {
+    width: 85%;
+    font-size: 22px;
+    line-height: 1.8;
+    text-shadow: 0 0 18px #6dbfff;
+    animation: openingFade 3s ease;
+}
+
+/* FINAL */
+
+.final {
+    flex-direction: column;
+}
+
+.finalWord {
+    font-size: 48px;
+    letter-spacing: 7px;
+    color: #e2f7ff;
+    text-shadow:
+        0 0 15px #73c8ff,
+        0 0 45px #318cff;
+    animation: finalGlow 3s infinite alternate;
+}
+
+.finalText {
+    margin-top: 22px;
+    width: 85%;
+    color: #a9d9ff;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+@keyframes finalGlow {
+    from {
+        opacity: .55;
+        transform: scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+/* FLOATING STARS */
+
+.float {
+    position: absolute;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0;
+}
+
+.f1 { left: 15%; }
+.f2 { left: 45%; animation-delay: 2s; }
+.f3 { left: 75%; animation-delay: 4s; }
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: .8;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
     }
 }
 </style></head><body><div class="scene"><div class="moon"></div>
@@ -164,18 +385,225 @@ html, body {
 <div class="star s8"></div>
 <div class="star s9"></div>
 <div class="star s10"></div>
+<div class="star s11"></div>
+<div class="star s12"></div>
 
-<div class="glow"></div>
+<!-- SCENE 1 -->
 
-<div class="intro">
-    <p>TONIGHT, UNDER THE SAME MOON...</p>
+<section class="page active" id="scene1">
 
-    <h1>
-        For someone who makes<br>
-        ordinary days feel<br>
-        a little less ordinary. 🌙
-    </h1>
-</div>
+    <div class="opening">
 
-</div></body>
-  </html>
+        <div class="small">
+            TONIGHT, UNDER THE SAME MOON...
+        </div>
+
+        <h1>
+            For someone who makes<br>
+            ordinary days feel<br>
+            a little less ordinary. 🌙
+        </h1>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 2 -->
+
+<section class="page" id="scene2">
+
+    <div class="ground"></div>
+
+    <div class="bear">
+        🐻‍❄️
+    </div>
+
+    <div class="waiting">
+        Someone has been waiting for you... 🌙
+    </div>
+
+</section>
+
+
+<!-- SCENE 3 -->
+
+<section class="page" id="scene3">
+
+    <div class="ground"></div>
+
+    <div class="bear" style="left:38%; animation:none;">
+        🐻‍❄️
+    </div>
+
+    <div class="ladybug">
+        🐞
+    </div>
+
+    <div class="bouquet">
+        💐
+    </div>
+
+    <div class="waiting" style="opacity:1;animation:none;">
+        A little surprise for a very special day. ✨
+    </div>
+
+</section>
+
+
+<!-- SCENE 4 -->
+
+<section class="page" id="scene4">
+
+    <div class="album">
+
+        <h2>
+            Our Little Memories 🌙
+        </h2>
+
+        <div class="photo">
+            📸 Your first photo
+        </div>
+
+        <div class="photo">
+            📸 Your second photo
+        </div>
+
+        <p>
+            A few moments worth keeping forever. ✨
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 5 -->
+
+<section class="page" id="scene5">
+
+    <div class="letter">
+
+        <h2>
+            Happy Birthday, little ladybug 🐞
+        </h2>
+
+        <p>
+            Happy Birthday to my dinosaur, my Annabelle,
+            my Cat Mafia, my little ladybug,
+            and my favorite little menace. 🦖🐞
+        </p>
+
+        <p>
+            I hope this year gives you countless reasons
+            to smile, laugh, dream and keep being
+            the wonderfully chaotic person you are.
+        </p>
+
+        <p>
+            Some people enter our lives quietly
+            and somehow become a whole universe.
+            You are one of those people.
+        </p>
+
+        <p>
+            May your days be filled with good memories,
+            ridiculous laughter and people who genuinely
+            appreciate having you around.
+        </p>
+
+        <p class="signature">
+            — From someone who made this little universe
+            just for you. 💙
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 6 -->
+
+<section class="page" id="scene6">
+
+    <div class="skyText">
+
+        The night gets quieter...<br>
+        but some memories become brighter. ✨
+
+        <br><br>
+
+        Maybe that's what makes people special.
+
+    </div>
+
+</section>
+
+
+<!-- SCENE 7 -->
+
+<section class="page final" id="scene7">
+
+    <div class="finalWord">
+        saranghae
+    </div>
+
+    <div class="finalText">
+        Under the same moon,<br>
+        somewhere between the stars,<br>
+        our little universe continues. 🌙✨
+    </div>
+
+</section>
+
+
+<div class="float f1">✦</div>
+<div class="float f2">✧</div>
+<div class="float f3">✦</div>
+
+</div><script>
+
+function showScene(number) {
+
+    var scenes = document.querySelectorAll(".page");
+
+    for (var i = 0; i < scenes.length; i++) {
+        scenes[i].classList.remove("active");
+    }
+
+    var next = document.getElementById("scene" + number);
+
+    if (next) {
+        next.classList.add("active");
+    }
+}
+
+
+/* CINEMATIC TIMELINE */
+
+setTimeout(function() {
+    showScene(2);
+}, 7000);
+
+setTimeout(function() {
+    showScene(3);
+}, 13000);
+
+setTimeout(function() {
+    showScene(4);
+}, 19000);
+
+setTimeout(function() {
+    showScene(5);
+}, 26000);
+
+setTimeout(function() {
+    showScene(6);
+}, 37000);
+
+setTimeout(function() {
+    showScene(7);
+}, 45000);
+
+</script></body>
+    </html>
