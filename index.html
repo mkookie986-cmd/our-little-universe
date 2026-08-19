@@ -1,4 +1,4 @@
-<!html html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -7,607 +7,6 @@
 <title>Our Little Universe 🌙</title>
 
 <style>
-
-* {
-    boxbox-sizingorder-box;
-}
-
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: #05091f;
-    color: white;
-    font-family: Arial, sans-serif;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    overflow: hidden;
-}
-
-/* MOON */
-
-.moon {
-    position: fixed;
-    top: 35px;
-    right: 30px;
-
-    width: 75px;
-    height: 75px;
-
-    background: #e9f7ff;
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 15px #bde7ff,
-        0 0 45px #4aaeff;
-}
-
-/* STARS */
-
-.star {
-    position: fixed;
-
-    width: 3px;
-    height: 3px;
-
-    background: white;
-    border-radius: 50%;
-
-    box-shadow: 0 0 10px #75caff;
-
-    animation: sparkle 2s infinite alternate;
-}
-
-.star1 { top: 10%; left: 15%; }
-.star2 { top: 20%; left: 80%; }
-.star3 { top: 70%; left: 10%; }
-.star4 { top: 85%; left: 85%; }
-.star5 { top: 35%; left: 90%; }
-.star6 { top: 55%; left: 7%; }
-.star7 { top: 15%; left: 55%; }
-.star8 { top: 90%; left: 45%; }
-
-@keyframes sparkle {
-
-    from {
-        opacity: .2;
-        transform: scale(.7);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1.4);
-    }
-
-}
-
-/* MAIN BOX */
-
-.box {
-
-    width: 88%;
-    max-width: 420px;
-
-    padding: 32px 24px;
-
-    text-align: center;
-
-    background: #080f30;
-
-    border: 1px solid #2f82c7;
-
-    border-radius: 28px;
-
-    box-shadow:
-        0 0 30px rgba(50,150,255,.3);
-
-}
-
-/* TEXT */
-
-.emoji {
-    font-size: 55px;
-}
-
-h1 {
-
-    font-size: 27px;
-
-    color: #dff6ff;
-
-    text-shadow:
-        0 0 12px #55baff;
-
-}
-
-p {
-
-    font-size: 19px;
-
-    line-height: 1.6;
-
-}
-
-/* FLIRTY TEXT */
-
-.flirty {
-
-    color: #8fd4ff;
-
-    font-size: 15px;
-
-    margin-top: 18px;
-
-}
-
-/* BUTTONS */
-
-button {
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin: 9px 0;
-
-    border-radius: 30px;
-
-    border: 1px solid #58baff;
-
-    background: #123b78;
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-}
-
-button:active {
-
-    transform: scale(.95);
-
-    box-shadow:
-        0 0 20px #4db9ff;
-
-}
-
-/* HIDDEN */
-
-.hidden {
-
-    display: none;
-
-}
-
-/* WRONG ANSWER */
-
-.wrong {
-
-    color: #8fd4ff;
-
-    font-weight: bold;
-
-    animation: shake .3s;
-
-}
-
-@keyframes shake {
-
-    0% { transform: translateX(0); }
-
-    25% { transform: translateX(-7px); }
-
-    50% { transform: translateX(7px); }
-
-    75% { transform: translateX(-7px); }
-
-    100% { transform: translateX(0); }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-<!-- STARS -->
-
-<div class="star star1"></div>
-<div class="star star2"></div>
-<div class="star star3"></div>
-<div class="star star4"></div>
-<div class="star star5"></div>
-<div class="star star6"></div>
-<div class="star star7"></div>
-<div class="star star8"></div>
-
-<!-- MOON -->
-
-<div class="moon"></div>
-
-
-<div class="box">
-
-
-<!-- PAGE 1 -->
-
-<div id="page1">
-
-<div class="emoji">👽</div>
-
-<h1>
-Welcome to our world, Mindless Alien 👽
-</h1>
-
-<p>
-And so... everything begins. 🌙✨
-</p>
-
-<button onclick="showPage(2)">
-Continue →
-</button>
-
-</div>
-
-
-<!-- PAGE 2 -->
-
-<div id="page2" class="hidden">
-
-<div class="emoji">🦎</div>
-
-<h1>
-Important question...
-</h1>
-
-<p>
-So who is your favorite — me or the lizard?
-</p>
-
-<button onclick="showPage(3)">
-Me 💙
-</button>
-
-<button onclick="showPage(3)">
-Me 😭
-</button>
-
-<p class="flirty">
-Choose carefully... the lizard is watching. 👀
-</p>
-
-</div>
-
-
-<!-- PAGE 3 -->
-
-<div id="page3" class="hidden">
-
-<div class="emoji">👽</div>
-
-<h1>
-Be honest...
-</h1>
-
-<p>
-Are you mindless?
-</p>
-
-<button onclick="showPage(4)">
-Yes 👽
-</button>
-
-<button onclick="wrongAnswer()">
-No 😌
-</button>
-
-<p id="wrong" class="wrong hidden">
-Wrong answer 😭
-</p>
-
-</div>
-
-
-<!-- PAGE 4 -->
-
-<div id="page4" class="hidden">
-
-<div class="emoji">🎨</div>
-
-<h1>
-One more thing...
-</h1>
-
-<p>
-What is your fav color?
-</p>
-
-<button onclick="showPage(5)">
-Pink 🩷
-</button>
-
-<button onclick="showPage(5)">
-Blue 💙
-</button>
-
-<button onclick="showPage(5)">
-Black 🖤
-</button>
-
-</div>
-
-
-<!-- PAGE 5 -->
-
-<div id="page5" class="hidden">
-
-<div class="emoji">🌙</div>
-
-<h1>
-Now be honest... 👀
-</h1>
-
-<p>
-Who looks better under the moonlight?
-</p>
-
-<p class="flirty">
-Think carefully... your answer might matter. 😌✨
-</p>
-
-<button onclick="showPage(6)">
-You, obviously 💙
-</button>
-
-<button onclick="showPage(6)">
-The moon 🌙
-</button>
-
-<button onclick="showPage(6)">
-I'm not answering that 😭
-</button>
-
-</div>
-
-
-<!-- PAGE 6 -->
-
-<div id="page6" class="hidden">
-
-<div class="emoji">💙</div>
-
-<h1>
-Tell me honestly...
-</h1>
-
-<p>
-What do you think about me?
-</p>
-
-<button onclick="showPage(7)">
-Good person 🌙
-</button>
-
-<button onclick="showPage(7)">
-Favorite person ✨
-</button>
-
-<button onclick="showPage(7)">
-Mine person 👀
-</button>
-
-<p class="flirty">
-Hmm... interesting answer. I'm listening. 😌
-</p>
-
-</div>
-
-
-<!-- PAGE 7 -->
-
-<div id="page7" class="hidden">
-
-<div class="emoji">🐡</div>
-
-<h1>
-Knock knock...
-</h1>
-
-<p>
-Who is there?
-</p>
-
-<button onclick="showPage(8)">
-Pufferfish 🐡
-</button>
-
-</div>
-
-
-<!-- PAGE 8 -->
-
-<div id="page8" class="hidden">
-
-<div class="emoji">🌌</div>
-
-<h1>
-Pufferfish who?
-</h1>
-
-<p>
-Pufferfish... never mind. 😭🐡
-</p>
-
-<p class="flirty">
-Okay, that was terrible. Let's move on. 👀
-</p>
-
-<button onclick="showPage(9)">
-Continue 🌙
-</button>
-
-</div>
-
-
-<!-- FINAL QUESTION -->
-
-<div id="page9" class="hidden">
-
-<div class="emoji">🌙</div>
-
-<h1>
-마지막 질문
-</h1>
-
-<p>
-혹시 나를 사랑하나요?
-</p>
-
-<p class="flirty">
-One last answer... choose wisely. 👀💙
-</p>
-
-<button onclick="finalAnswer('yes')">
-Yes 💙
-</button>
-
-<button onclick="finalAnswer('no')">
-No 🥲
-</button>
-
-<button onclick="finalAnswer('obviously')">
-Obviously 😭✨
-</button>
-
-</div>
-
-
-<!-- END -->
-
-<div id="page10" class="hidden">
-
-<div class="emoji">💙</div>
-
-<h1 id="finalTitle">
-Our little universe 🌙
-</h1>
-
-<p id="finalText">
-Under the same moon,
-somewhere between the stars,
-our little universe continues. ✨
-</p>
-
-</div>
-
-
-</div>
-
-
-<script>
-
-function showPage(number) {
-
-    for (let i = 1; i <= 10; i++) {
-
-        document
-        .getElementById("page" + i)
-        .classList.add("hidden");
-
-    }
-
-    document
-    .getElementById("page" + number)
-    .classList.remove("hidden");
-
-}
-
-
-function wrongAnswer() {
-
-    let message =
-    document.getElementById("wrong");
-
-    message.classList.remove("hidden");
-
-    setTimeout(function() {
-
-        message.classList.add("hidden");
-
-    }, 1800);
-
-}
-
-
-function finalAnswer(answer) {
-
-    let title =
-    document.getElementById("finalTitle");
-
-    let text =
-    document.getElementById("finalText");
-
-
-    if (answer === "yes") {
-
-        title.innerHTML =
-        "I knew it. 💙🌙";
-
-        text.innerHTML =
-        "The moon already knew your answer. ✨<br><br>" +
-        "Maybe some things really are written in the stars.";
-
-    }
-
-
-    else if (answer === "no") {
-
-        title.innerHTML =
-        "Ouch... 🥲";
-
-        text.innerHTML =
-        "The stars heard that answer...<br><br>" +
-        "I'll pretend I didn't. 🌙😭";
-
-    }
-
-
-    else {
-
-        title.innerHTML =
-        "Obviously?! 😭💙";
-
-        text.innerHTML =
-        "Okay, okay... you didn't have to make it that obvious. 👀<br><br>" +
-        "The moon definitely saw that coming. 🌙✨";
-
-    }
-
-
-    showPage(10);
-
-}
-
-</script>
-
-</body>
-
-</html><!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Our Little Universe 🌙</title>
-
-<style>
-
 * {
     box-sizing: border-box;
 }
@@ -618,45 +17,32 @@ body {
     background: #05091f;
     color: white;
     font-family: Arial, sans-serif;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     overflow: hidden;
 }
-
-/* MOON */
 
 .moon {
     position: fixed;
     top: 35px;
     right: 30px;
-
     width: 75px;
     height: 75px;
-
     background: #e9f7ff;
     border-radius: 50%;
-
     box-shadow:
         0 0 15px #bde7ff,
         0 0 45px #4aaeff;
 }
 
-/* STARS */
-
 .star {
     position: fixed;
-
     width: 3px;
     height: 3px;
-
     background: white;
     border-radius: 50%;
-
     box-shadow: 0 0 10px #75caff;
-
     animation: sparkle 2s infinite alternate;
 }
 
@@ -670,7 +56,6 @@ body {
 .star8 { top: 90%; left: 45%; }
 
 @keyframes sparkle {
-
     from {
         opacity: .2;
         transform: scale(.7);
@@ -680,143 +65,78 @@ body {
         opacity: 1;
         transform: scale(1.4);
     }
-
 }
-
-/* MAIN BOX */
 
 .box {
-
     width: 88%;
     max-width: 420px;
-
     padding: 32px 24px;
-
     text-align: center;
-
     background: #080f30;
-
     border: 1px solid #2f82c7;
-
     border-radius: 28px;
-
-    box-shadow:
-        0 0 30px rgba(50,150,255,.3);
-
+    box-shadow: 0 0 30px rgba(50,150,255,.3);
 }
-
-/* TEXT */
 
 .emoji {
     font-size: 55px;
 }
 
 h1 {
-
     font-size: 27px;
-
     color: #dff6ff;
-
-    text-shadow:
-        0 0 12px #55baff;
-
+    text-shadow: 0 0 12px #55baff;
 }
 
 p {
-
     font-size: 19px;
-
     line-height: 1.6;
-
 }
-
-/* FLIRTY TEXT */
 
 .flirty {
-
     color: #8fd4ff;
-
     font-size: 15px;
-
     margin-top: 18px;
-
 }
 
-/* BUTTONS */
-
 button {
-
     width: 100%;
-
     padding: 14px;
-
     margin: 9px 0;
-
     border-radius: 30px;
-
     border: 1px solid #58baff;
-
     background: #123b78;
-
     color: white;
-
     font-size: 16px;
-
     font-weight: bold;
-
 }
 
 button:active {
-
     transform: scale(.95);
-
-    box-shadow:
-        0 0 20px #4db9ff;
-
+    box-shadow: 0 0 20px #4db9ff;
 }
-
-/* HIDDEN */
 
 .hidden {
-
     display: none;
-
 }
 
-/* WRONG ANSWER */
-
 .wrong {
-
     color: #8fd4ff;
-
     font-weight: bold;
-
     animation: shake .3s;
-
 }
 
 @keyframes shake {
-
     0% { transform: translateX(0); }
-
     25% { transform: translateX(-7px); }
-
     50% { transform: translateX(7px); }
-
     75% { transform: translateX(-7px); }
-
     100% { transform: translateX(0); }
-
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-<!-- STARS -->
 
 <div class="star star1"></div>
 <div class="star star2"></div>
@@ -827,285 +147,240 @@ button:active {
 <div class="star star7"></div>
 <div class="star star8"></div>
 
-<!-- MOON -->
-
 <div class="moon"></div>
-
 
 <div class="box">
 
-
-<!-- PAGE 1 -->
-
 <div id="page1">
+    <div class="emoji">👽</div>
 
-<div class="emoji">👽</div>
+    <h1>
+        Welcome to our world, Mindless Alien 👽
+    </h1>
 
-<h1>
-Welcome to our world, Mindless Alien 👽
-</h1>
+    <p>
+        And so... everything begins. 🌙✨
+    </p>
 
-<p>
-And so... everything begins. 🌙✨
-</p>
-
-<button onclick="showPage(2)">
-Continue →
-</button>
-
+    <button onclick="showPage(2)">
+        Continue →
+    </button>
 </div>
 
-
-<!-- PAGE 2 -->
 
 <div id="page2" class="hidden">
+    <div class="emoji">🦎</div>
 
-<div class="emoji">🦎</div>
+    <h1>
+        Important question...
+    </h1>
 
-<h1>
-Important question...
-</h1>
+    <p>
+        So who is your favorite — me or the lizard?
+    </p>
 
-<p>
-So who is your favorite — me or the lizard?
-</p>
+    <button onclick="showPage(3)">
+        Me 💙
+    </button>
 
-<button onclick="showPage(3)">
-Me 💙
-</button>
+    <button onclick="showPage(3)">
+        Me 😭
+    </button>
 
-<button onclick="showPage(3)">
-Me 😭
-</button>
-
-<p class="flirty">
-Choose carefully... the lizard is watching. 👀
-</p>
-
+    <p class="flirty">
+        Choose carefully... the lizard is watching. 👀
+    </p>
 </div>
 
-
-<!-- PAGE 3 -->
 
 <div id="page3" class="hidden">
+    <div class="emoji">👽</div>
 
-<div class="emoji">👽</div>
+    <h1>
+        Be honest...
+    </h1>
 
-<h1>
-Be honest...
-</h1>
+    <p>
+        Are you mindless?
+    </p>
 
-<p>
-Are you mindless?
-</p>
+    <button onclick="showPage(4)">
+        Yes 👽
+    </button>
 
-<button onclick="showPage(4)">
-Yes 👽
-</button>
+    <button onclick="wrongAnswer()">
+        No 😌
+    </button>
 
-<button onclick="wrongAnswer()">
-No 😌
-</button>
-
-<p id="wrong" class="wrong hidden">
-Wrong answer 😭
-</p>
-
+    <p id="wrong" class="wrong hidden">
+        Wrong answer 😭
+    </p>
 </div>
 
-
-<!-- PAGE 4 -->
 
 <div id="page4" class="hidden">
+    <div class="emoji">🎨</div>
 
-<div class="emoji">🎨</div>
+    <h1>
+        One more thing...
+    </h1>
 
-<h1>
-One more thing...
-</h1>
+    <p>
+        What is your fav color?
+    </p>
 
-<p>
-What is your fav color?
-</p>
+    <button onclick="showPage(5)">
+        Pink 🩷
+    </button>
 
-<button onclick="showPage(5)">
-Pink 🩷
-</button>
+    <button onclick="showPage(5)">
+        Blue 💙
+    </button>
 
-<button onclick="showPage(5)">
-Blue 💙
-</button>
-
-<button onclick="showPage(5)">
-Black 🖤
-</button>
-
+    <button onclick="showPage(5)">
+        Black 🖤
+    </button>
 </div>
 
-
-<!-- PAGE 5 -->
 
 <div id="page5" class="hidden">
+    <div class="emoji">🌙</div>
 
-<div class="emoji">🌙</div>
+    <h1>
+        Now be honest... 👀
+    </h1>
 
-<h1>
-Now be honest... 👀
-</h1>
+    <p>
+        Who looks better under the moonlight?
+    </p>
 
-<p>
-Who looks better under the moonlight?
-</p>
+    <p class="flirty">
+        Think carefully... your answer might matter. 😌✨
+    </p>
 
-<p class="flirty">
-Think carefully... your answer might matter. 😌✨
-</p>
+    <button onclick="showPage(6)">
+        You, obviously 💙
+    </button>
 
-<button onclick="showPage(6)">
-You, obviously 💙
-</button>
+    <button onclick="showPage(6)">
+        The moon 🌙
+    </button>
 
-<button onclick="showPage(6)">
-The moon 🌙
-</button>
-
-<button onclick="showPage(6)">
-I'm not answering that 😭
-</button>
-
+    <button onclick="showPage(6)">
+        I'm not answering that 😭
+    </button>
 </div>
 
-
-<!-- PAGE 6 -->
 
 <div id="page6" class="hidden">
+    <div class="emoji">💙</div>
 
-<div class="emoji">💙</div>
+    <h1>
+        Tell me honestly...
+    </h1>
 
-<h1>
-Tell me honestly...
-</h1>
+    <p>
+        What do you think about me?
+    </p>
 
-<p>
-What do you think about me?
-</p>
+    <button onclick="showPage(7)">
+        Good person 🌙
+    </button>
 
-<button onclick="showPage(7)">
-Good person 🌙
-</button>
+    <button onclick="showPage(7)">
+        Favorite person ✨
+    </button>
 
-<button onclick="showPage(7)">
-Favorite person ✨
-</button>
+    <button onclick="showPage(7)">
+        Mine person 👀
+    </button>
 
-<button onclick="showPage(7)">
-Mine person 👀
-</button>
-
-<p class="flirty">
-Hmm... interesting answer. I'm listening. 😌
-</p>
-
+    <p class="flirty">
+        Hmm... interesting answer. I'm listening. 😌
+    </p>
 </div>
 
-
-<!-- PAGE 7 -->
 
 <div id="page7" class="hidden">
+    <div class="emoji">🐡</div>
 
-<div class="emoji">🐡</div>
+    <h1>
+        Knock knock...
+    </h1>
 
-<h1>
-Knock knock...
-</h1>
+    <p>
+        Who is there?
+    </p>
 
-<p>
-Who is there?
-</p>
-
-<button onclick="showPage(8)">
-Pufferfish 🐡
-</button>
-
+    <button onclick="showPage(8)">
+        Pufferfish 🐡
+    </button>
 </div>
 
-
-<!-- PAGE 8 -->
 
 <div id="page8" class="hidden">
+    <div class="emoji">🌌</div>
 
-<div class="emoji">🌌</div>
+    <h1>
+        Pufferfish who?
+    </h1>
 
-<h1>
-Pufferfish who?
-</h1>
+    <p>
+        Pufferfish... never mind. 😭🐡
+    </p>
 
-<p>
-Pufferfish... never mind. 😭🐡
-</p>
+    <p class="flirty">
+        Okay, that was terrible. Let's move on. 👀
+    </p>
 
-<p class="flirty">
-Okay, that was terrible. Let's move on. 👀
-</p>
-
-<button onclick="showPage(9)">
-Continue 🌙
-</button>
-
+    <button onclick="showPage(9)">
+        Continue 🌙
+    </button>
 </div>
 
-
-<!-- FINAL QUESTION -->
 
 <div id="page9" class="hidden">
+    <div class="emoji">🌙</div>
 
-<div class="emoji">🌙</div>
+    <h1>
+        마지막 질문
+    </h1>
 
-<h1>
-마지막 질문
-</h1>
+    <p>
+        혹시 나를 사랑하나요?
+    </p>
 
-<p>
-혹시 나를 사랑하나요?
-</p>
+    <p class="flirty">
+        One last answer... choose wisely. 👀💙
+    </p>
 
-<p class="flirty">
-One last answer... choose wisely. 👀💙
-</p>
+    <button onclick="finalAnswer('yes')">
+        Yes 💙
+    </button>
 
-<button onclick="finalAnswer('yes')">
-Yes 💙
-</button>
+    <button onclick="finalAnswer('no')">
+        No 🥲
+    </button>
 
-<button onclick="finalAnswer('no')">
-No 🥲
-</button>
-
-<button onclick="finalAnswer('obviously')">
-Obviously 😭✨
-</button>
-
+    <button onclick="finalAnswer('obviously')">
+        Obviously 😭✨
+    </button>
 </div>
 
-
-<!-- END -->
 
 <div id="page10" class="hidden">
+    <div class="emoji">💙</div>
 
-<div class="emoji">💙</div>
+    <h1 id="finalTitle">
+        Our little universe 🌙
+    </h1>
 
-<h1 id="finalTitle">
-Our little universe 🌙
-</h1>
-
-<p id="finalText">
-Under the same moon,
-somewhere between the stars,
-our little universe continues. ✨
-</p>
-
+    <p id="finalText">
+        Under the same moon,<br>
+        somewhere between the stars,<br>
+        our little universe continues. ✨
+    </p>
 </div>
-
 
 </div>
 
@@ -1115,87 +390,68 @@ our little universe continues. ✨
 function showPage(number) {
 
     for (let i = 1; i <= 10; i++) {
-
         document
-        .getElementById("page" + i)
-        .classList.add("hidden");
-
+            .getElementById("page" + i)
+            .classList.add("hidden");
     }
 
     document
-    .getElementById("page" + number)
-    .classList.remove("hidden");
-
+        .getElementById("page" + number)
+        .classList.remove("hidden");
 }
 
 
 function wrongAnswer() {
 
-    let message =
-    document.getElementById("wrong");
+    let message = document.getElementById("wrong");
 
     message.classList.remove("hidden");
 
     setTimeout(function() {
-
         message.classList.add("hidden");
-
     }, 1800);
-
 }
 
 
 function finalAnswer(answer) {
 
-    let title =
-    document.getElementById("finalTitle");
-
-    let text =
-    document.getElementById("finalText");
-
+    let title = document.getElementById("finalTitle");
+    let text = document.getElementById("finalText");
 
     if (answer === "yes") {
 
         title.innerHTML =
-        "I knew it. 💙🌙";
+            "I knew it. 💙🌙";
 
         text.innerHTML =
-        "The moon already knew your answer. ✨<br><br>" +
-        "Maybe some things really are written in the stars.";
-
+            "The moon already knew your answer. ✨<br><br>" +
+            "Maybe some things really are written in the stars.";
     }
-
 
     else if (answer === "no") {
 
         title.innerHTML =
-        "Ouch... 🥲";
+            "Ouch... 🥲";
 
         text.innerHTML =
-        "The stars heard that answer...<br><br>" +
-        "I'll pretend I didn't. 🌙😭";
-
+            "The stars heard that answer...<br><br>" +
+            "I'll pretend I didn't. 🌙😭";
     }
-
 
     else {
 
         title.innerHTML =
-        "Obviously?! 😭💙";
+            "Obviously?! 😭💙";
 
         text.innerHTML =
-        "Okay, okay... you didn't have to make it that obvious. 👀<br><br>" +
-        "The moon definitely saw that coming. 🌙✨";
-
+            "Okay, okay... you didn't have to make it that obvious. 👀<br><br>" +
+            "The moon definitely saw that coming. 🌙✨";
     }
 
-
     showPage(10);
-
 }
 
 </script>
 
 </body>
-
-</html>
+        </html>
