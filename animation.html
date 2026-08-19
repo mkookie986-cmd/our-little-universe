@@ -6,398 +6,565 @@
 <title>Our Little Universe 🌙</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+    box-sizing:border-box;
+}
 
 html,body{
-margin:0;
-width:100%;
-height:100%;
-overflow:hidden;
-background:#020516;
-color:white;
-font-family:Georgia,serif
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#020516;
+    color:white;
+    font-family:Georgia,serif;
 }
 
 .scene{
-position:relative;
-width:100%;
-height:100vh;
-overflow:hidden;
-background:radial-gradient(circle at 75% 15%,#19356f,#080f31 45%,#020516 90%)
+    position:relative;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    background:
+        radial-gradient(
+            circle at 75% 15%,
+            #19356f,
+            #080f31 45%,
+            #020516 90%
+        );
 }
 
+/* START */
+
 #startScreen{
-position:fixed;
-inset:0;
-z-index:9999;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:25px;
-background:radial-gradient(circle at 50% 30%,#142b61,#080f31 45%,#020516);
-transition:opacity 1.5s ease
+    position:fixed;
+    inset:0;
+    z-index:9999;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:25px;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #142b61,
+            #080f31 45%,
+            #020516
+        );
+
+    transition:opacity 1.5s ease;
 }
 
 #startScreen.hide{
-opacity:0;
-pointer-events:none
+    opacity:0;
+    pointer-events:none;
 }
 
 .startStars{
-font-size:28px;
-margin-bottom:20px;
-animation:glow 2s infinite alternate
+    font-size:28px;
+    margin-bottom:20px;
 }
 
 #startScreen h1{
-font-size:28px;
-font-weight:normal;
-text-shadow:0 0 15px #72caff,0 0 35px #318cff
+    font-size:28px;
+    font-weight:normal;
+    text-shadow:
+        0 0 15px #72caff,
+        0 0 35px #318cff;
 }
 
 #startScreen p{
-font-size:17px;
-line-height:1.8;
-color:#b7dcff;
-margin-bottom:30px
+    font-size:17px;
+    line-height:1.8;
+    color:#b7dcff;
+    margin-bottom:30px;
 }
 
 #startScreen button{
-border:1px solid rgba(180,225,255,.7);
-border-radius:30px;
-padding:14px 25px;
-background:rgba(20,55,100,.55);
-color:white;
-font-size:15px;
-font-family:Georgia,serif;
-box-shadow:0 0 20px rgba(70,170,255,.3)
+    border:1px solid rgba(180,225,255,.7);
+    border-radius:30px;
+
+    padding:14px 25px;
+
+    background:rgba(20,55,100,.55);
+
+    color:white;
+
+    font-size:15px;
+    font-family:Georgia,serif;
+
+    box-shadow:
+        0 0 20px rgba(70,170,255,.3);
 }
 
-@keyframes glow{
-from{opacity:.4;transform:scale(.9)}
-to{opacity:1;transform:scale(1.1)}
-}
+/* STARS */
 
 .star{
-position:absolute;
-width:3px;
-height:3px;
-border-radius:50%;
-background:white;
-box-shadow:0 0 10px #8fd4ff;
-animation:twinkle 2s infinite alternate
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:white;
+
+    box-shadow:
+        0 0 10px #8fd4ff;
+
+    animation:twinkle 2s infinite alternate;
 }
 
-.s1{top:10%;left:12%}.s2{top:18%;left:30%}
-.s3{top:12%;left:53%}.s4{top:25%;left:87%}
-.s5{top:42%;left:8%}.s6{top:55%;left:91%}
-.s7{top:72%;left:18%}.s8{top:80%;left:75%}
-.s9{top:63%;left:52%}.s10{top:35%;left:65%}
-.s11{top:88%;left:40%}.s12{top:48%;left:35%}
+.s1{top:10%;left:12%}
+.s2{top:18%;left:30%}
+.s3{top:12%;left:53%}
+.s4{top:25%;left:87%}
+.s5{top:42%;left:8%}
+.s6{top:55%;left:91%}
+.s7{top:72%;left:18%}
+.s8{top:80%;left:75%}
+.s9{top:63%;left:52%}
+.s10{top:35%;left:65%}
+.s11{top:88%;left:40%}
+.s12{top:48%;left:35%}
 
 @keyframes twinkle{
-from{opacity:.25;transform:scale(.6)}
-to{opacity:1;transform:scale(1.5)}
+    from{
+        opacity:.25;
+        transform:scale(.6);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
 }
+
+/* MOON */
 
 .moon{
-position:absolute;
-top:7%;
-right:10%;
-width:90px;
-height:90px;
-border-radius:50%;
-background:#effaff;
-box-shadow:0 0 20px #d9f4ff,0 0 55px #62baff,0 0 110px rgba(80,160,255,.35)
+    position:absolute;
+    top:7%;
+    right:10%;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:#effaff;
+
+    box-shadow:
+        0 0 20px #d9f4ff,
+        0 0 55px #62baff,
+        0 0 110px rgba(80,160,255,.35);
 }
 
+/* PAGES */
+
 .page{
-position:absolute;
-inset:0;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-opacity:0;
-visibility:hidden;
-transition:opacity 1s ease
+    position:absolute;
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:opacity 1s ease;
 }
 
 .page.active{
-opacity:1;
-visibility:visible
+    opacity:1;
+    visibility:visible;
 }
 
+/* OPENING */
+
 .opening{
-width:90%;
-animation:fadeUp 3s ease
+    width:90%;
 }
 
 .small{
-color:#a9d9ff;
-letter-spacing:3px;
-font-size:12px
+    color:#a9d9ff;
+    letter-spacing:3px;
+    font-size:12px;
 }
 
 .opening h1{
-font-size:27px;
-line-height:1.5;
-font-weight:normal;
-text-shadow:0 0 15px #6dbfff,0 0 30px #318cff
+    font-size:27px;
+    line-height:1.5;
+    font-weight:normal;
+
+    text-shadow:
+        0 0 15px #6dbfff,
+        0 0 30px #318cff;
 }
 
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
-}
+/* GROUND */
 
 .ground{
-position:absolute;
-bottom:-45px;
-left:50%;
-transform:translateX(-50%);
-width:130%;
-height:130px;
-border-radius:50%;
-background:#06152a;
-box-shadow:0 -10px 40px rgba(60,160,255,.25)
+    position:absolute;
+
+    bottom:-45px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:130%;
+    height:130px;
+
+    border-radius:50%;
+
+    background:#06152a;
+
+    box-shadow:
+        0 -10px 40px rgba(60,160,255,.25);
 }
 
+/* BEAR */
+
 .bear{
-position:absolute;
-bottom:50px;
-left:-150px;
-font-size:85px;
-animation:bearWalk 5s ease forwards
+    position:absolute;
+
+    bottom:50px;
+    left:-150px;
+
+    font-size:85px;
+
+    animation:
+        bearWalk 5s ease forwards;
 }
 
 @keyframes bearWalk{
-0%{left:-150px}
-100%{left:38%}
+
+    from{
+        left:-150px;
+    }
+
+    to{
+        left:38%;
+    }
 }
 
 .waiting{
-position:absolute;
-bottom:175px;
-width:100%;
-font-size:19px;
-opacity:0;
-animation:appear 2s ease 3s forwards
+    position:absolute;
+
+    bottom:175px;
+
+    width:100%;
+
+    font-size:19px;
+
+    opacity:0;
+
+    animation:
+        appear 2s ease 3s forwards;
 }
 
 @keyframes appear{
-to{opacity:1}
+    to{
+        opacity:1;
+    }
 }
 
+/* LADYBUG */
+
 .ladybug{
-position:absolute;
-font-size:65px;
-right:-100px;
-top:38%;
-animation:bugFly 4s ease forwards
+    position:absolute;
+
+    font-size:65px;
+
+    right:-100px;
+    top:38%;
+
+    animation:
+        bugFly 4s ease forwards;
 }
 
 @keyframes bugFly{
-0%{right:-100px;transform:rotate(15deg)}
-70%{right:40%;transform:rotate(-5deg)}
-100%{right:42%;transform:rotate(0)}
+
+    0%{
+        right:-100px;
+        transform:rotate(15deg);
+    }
+
+    70%{
+        right:40%;
+        transform:rotate(-5deg);
+    }
+
+    100%{
+        right:42%;
+        transform:rotate(0);
+    }
 }
 
+/* BOUQUET */
+
 .bouquet{
-position:absolute;
-font-size:65px;
-left:28%;
-top:51%;
-opacity:0;
-animation:bouquetShow 2s ease 3s forwards
+    position:absolute;
+
+    font-size:65px;
+
+    left:28%;
+    top:51%;
+
+    opacity:0;
+
+    animation:
+        bouquetShow 2s ease 3s forwards;
 }
 
 @keyframes bouquetShow{
-0%{opacity:0;transform:scale(.3) rotate(-20deg)}
-100%{opacity:1;transform:scale(1) rotate(0)}
+
+    from{
+        opacity:0;
+        transform:
+            scale(.3)
+            rotate(-20deg);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            scale(1)
+            rotate(0);
+    }
 }
 
 .littleMessage{
-position:absolute;
-bottom:16%;
-width:90%;
-font-size:18px;
-color:#c8e9ff;
-opacity:0;
-animation:messageIn 2s ease 4s forwards
+    position:absolute;
+
+    bottom:16%;
+
+    width:90%;
+
+    font-size:18px;
+
+    color:#c8e9ff;
+
+    opacity:0;
+
+    animation:
+        messageIn 2s ease 4s forwards;
 }
 
 @keyframes messageIn{
-to{opacity:1}
+    to{
+        opacity:1;
+    }
 }
 
-.sparkle{
-position:absolute;
-font-size:24px;
-opacity:0;
-animation:sparkleFloat 3s ease forwards
-}
-
-.spark1{top:35%;left:35%;animation-delay:3.5s}
-.spark2{top:43%;right:32%;animation-delay:4s}
-.spark3{top:28%;left:52%;animation-delay:4.5s}
-
-@keyframes sparkleFloat{
-0%{opacity:0;transform:scale(.4) translateY(20px)}
-50%{opacity:1}
-100%{opacity:0;transform:scale(1.2) translateY(-30px)}
-}
-
-/* PHOTOS */
+/* PHOTO MONTAGE */
 
 .photoScene{
-position:absolute;
-inset:0;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column
+    position:absolute;
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
 }
 
 .photoTitle{
-position:absolute;
-top:9%;
-font-size:22px;
-color:#e8f8ff;
-text-shadow:0 0 15px #4dafff
+    position:absolute;
+
+    top:9%;
+
+    font-size:22px;
+
+    color:#e8f8ff;
+
+    text-shadow:
+        0 0 15px #4dafff;
 }
 
 .photoFrame{
-width:82%;
-max-width:350px;
-padding:8px;
-background:#f8f3e7;
-border-radius:8px;
-box-shadow:0 15px 50px rgba(0,0,0,.7);
-opacity:0;
-transform:scale(.88) rotate(-2deg);
-transition:opacity 1s ease,transform 1s ease
+    width:82%;
+    max-width:350px;
+
+    padding:8px;
+
+    background:#f8f3e7;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.7);
+
+    opacity:0;
+
+    transform:
+        scale(.88)
+        rotate(-2deg);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
 .photoFrame.show{
-opacity:1;
-transform:scale(1) rotate(-1deg)
+    opacity:1;
+
+    transform:
+        scale(1)
+        rotate(-1deg);
 }
 
 .photoFrame.hide{
-opacity:0;
-transform:scale(1.08) rotate(2deg)
+    opacity:0;
+
+    transform:
+        scale(1.08)
+        rotate(2deg);
 }
 
 .photoFrame img{
-width:100%;
-display:block;
-border-radius:4px
+    width:100%;
+    display:block;
+    border-radius:4px;
 }
 
 .photoNumber{
-margin-top:15px;
-color:#a9d9ff;
-font-size:13px;
-letter-spacing:2px
+    margin-top:15px;
+
+    color:#a9d9ff;
+
+    font-size:13px;
+
+    letter-spacing:2px;
 }
 
 /* LETTER */
 
 .letter{
-width:88%;
-max-width:420px;
-max-height:78vh;
-overflow-y:auto;
-padding:28px 23px;
-background:#f7efd9;
-color:#33291f;
-border-radius:9px;
-box-shadow:0 20px 60px rgba(0,0,0,.7);
-animation:letterOpen 1.5s ease
+    width:88%;
+    max-width:420px;
+
+    max-height:78vh;
+
+    overflow-y:auto;
+
+    padding:28px 23px;
+
+    background:#f7efd9;
+
+    color:#33291f;
+
+    border-radius:9px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.7);
 }
 
-@keyframes letterOpen{
-from{opacity:0;transform:scale(.7) rotate(-4deg)}
-to{opacity:1;transform:scale(1) rotate(-1deg)}
+.letter h2{
+    font-size:24px;
 }
-
-.letter h2{font-size:24px}
 
 .letter p{
-font-size:16px;
-line-height:1.7
+    font-size:16px;
+    line-height:1.7;
 }
 
 .signature{
-margin-top:22px;
-font-style:italic
+    margin-top:22px;
+    font-style:italic;
 }
 
 /* SKY */
 
 .skyText{
-width:85%;
-font-size:22px;
-line-height:1.8;
-text-shadow:0 0 18px #6dbfff;
-animation:fadeUp 2s ease
+    width:85%;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    text-shadow:
+        0 0 18px #6dbfff;
 }
 
 /* FINAL */
 
 .final{
-flex-direction:column
+    flex-direction:column;
 }
 
 .finalWord{
-font-size:48px;
-letter-spacing:7px;
-color:#e2f7ff;
-text-shadow:0 0 15px #73c8ff,0 0 45px #318cff;
-animation:finalGlow 3s infinite alternate
+    font-size:48px;
+
+    letter-spacing:7px;
+
+    color:#e2f7ff;
+
+    text-shadow:
+        0 0 15px #73c8ff,
+        0 0 45px #318cff;
 }
 
 .finalText{
-margin-top:22px;
-width:85%;
-color:#a9d9ff;
-font-size:16px;
-line-height:1.7
-}
+    margin-top:22px;
 
-@keyframes finalGlow{
-from{opacity:.55;transform:scale(.97)}
-to{opacity:1;transform:scale(1.04)}
+    width:85%;
+
+    color:#a9d9ff;
+
+    font-size:16px;
+
+    line-height:1.7;
 }
 
 </style>
 </head>
 
+
 <body>
+
 
 <div class="scene">
 
+
+<!-- START -->
+
 <div id="startScreen">
 
-<div class="startStars">✦　✧　✦</div>
+    <div class="startStars">
+        ✦　✧　✦
+    </div>
 
-<h1>For my little ladybug 🐞</h1>
+    <h1>
+        For my little ladybug 🐞
+    </h1>
 
-<p>
-I made a tiny universe<br>
-just for you. 🌙
-</p>
+    <p>
+        I made a tiny universe<br>
+        just for you. 🌙
+    </p>
 
-<button onclick="startJourney()">
-✨ Start the journey ✨
-</button>
+    <button onclick="startJourney()">
+        ✨ Start the journey ✨
+    </button>
 
 </div>
 
+
+<!-- MOON -->
+
 <div class="moon"></div>
+
+
+<!-- STARS -->
 
 <div class="star s1"></div>
 <div class="star s2"></div>
@@ -415,7 +582,9 @@ just for you. 🌙
 
 <!-- SCENE 1 -->
 
-<section class="page active" id="scene1">
+<section
+class="page active"
+id="scene1">
 
 <div class="opening">
 
@@ -436,11 +605,15 @@ a little less ordinary. 🌙
 
 <!-- SCENE 2 -->
 
-<section class="page" id="scene2">
+<section
+class="page"
+id="scene2">
 
 <div class="ground"></div>
 
-<div class="bear">🐻‍❄️</div>
+<div class="bear">
+🐻‍❄️
+</div>
 
 <div class="waiting">
 Someone has been waiting for you... 🌙
@@ -451,7 +624,9 @@ Someone has been waiting for you... 🌙
 
 <!-- SCENE 3 -->
 
-<section class="page" id="scene3">
+<section
+class="page"
+id="scene3">
 
 <div class="ground"></div>
 
@@ -463,24 +638,29 @@ style="left:24%;animation:none">
 
 </div>
 
-<div class="ladybug">🐞</div>
+<div class="ladybug">
+🐞
+</div>
 
-<div class="bouquet">💐</div>
-
-<div class="sparkle spark1">✦</div>
-<div class="sparkle spark2">✧</div>
-<div class="sparkle spark3">✦</div>
+<div class="bouquet">
+💐
+</div>
 
 <div class="littleMessage">
-A little ladybug bringing a little surprise... 🐞💐✨
+
+A little ladybug bringing
+a little surprise... 🐞💐✨
+
 </div>
 
 </section>
 
 
-<!-- SCENE 4 PHOTOS -->
+<!-- SCENE 4 -->
 
-<section class="page" id="scene4">
+<section
+class="page"
+id="scene4">
 
 <div class="photoScene">
 
@@ -509,9 +689,11 @@ id="photoNumber">
 </section>
 
 
-<!-- SCENE 5 LETTER -->
+<!-- SCENE 5 -->
 
-<section class="page" id="scene5">
+<section
+class="page"
+id="scene5">
 
 <div class="letter">
 
@@ -574,7 +756,9 @@ universe just for you. ✨
 
 <!-- SCENE 6 -->
 
-<section class="page" id="scene6">
+<section
+class="page"
+id="scene6">
 
 <div class="skyText">
 
@@ -595,7 +779,9 @@ Maybe that's what makes people special.
 
 <!-- SCENE 7 -->
 
-<section class="page final" id="scene7">
+<section
+class="page final"
+id="scene7">
 
 <div class="finalWord">
 saranghae
@@ -604,7 +790,9 @@ saranghae
 <div class="finalText">
 
 Under the same moon,<br>
+
 somewhere between the stars,<br>
+
 our little universe continues. 🌙✨
 
 <br><br>
@@ -615,37 +803,41 @@ Happy Birthday, little ladybug. 🐞💙
 
 </section>
 
+
 </div>
 
 
 <script>
 
 /* =========================
-SCENE CONTROL
+SCENE SWITCH
 ========================= */
 
 function showScene(number){
 
-var scenes =
-document.querySelectorAll(".page");
+    var scenes =
+        document.querySelectorAll(".page");
 
-for(var i=0;i<scenes.length;i++){
+    for(
+        var i = 0;
+        i < scenes.length;
+        i++
+    ){
 
-scenes[i].classList.remove("active");
+        scenes[i].classList.remove("active");
 
-}
+    }
 
-var target =
-document.getElementById(
-"scene"+number
-);
+    var scene =
+        document.getElementById(
+            "scene" + number
+        );
 
-if(target){
+    if(scene){
 
-target.classList.add("active");
+        scene.classList.add("active");
 
-}
-
+    }
 }
 
 
@@ -653,192 +845,225 @@ target.classList.add("active");
 PHOTOS
 ========================= */
 
-var photos=[
+var photos = [
 
-"IMG-20250819-WA0020.jpg",
-"Snapchat-1267893355.jpg",
-"Snapchat-1737000413.jpg",
-"Snapchat-193420270.jpg",
-"Snapchat-21432401.jpg",
-"Snapchat-55540618.jpg",
-"Snapchat-578601478.jpg",
-"Snapchat-652614665.jpg",
-"Snapchat-969088174.jpg"
+    "IMG-20250819-WA0020.jpg",
+
+    "Snapchat-1267893355.jpg",
+
+    "Snapchat-1737000413.jpg",
+
+    "Snapchat-193420270.jpg",
+
+    "Snapchat-21432401.jpg",
+
+    "Snapchat-55540618.jpg",
+
+    "Snapchat-578601478.jpg",
+
+    "Snapchat-652614665.jpg",
+
+    "Snapchat-969088174.jpg"
 
 ];
 
-var photoIndex=0;
+var photoIndex = 0;
 
+
+/* =========================
+PHOTO PLAYBACK
+========================= */
 
 function playPhotos(){
 
-var frame=
-document.getElementById(
-"photoFrame"
-);
+    var frame =
+        document.getElementById(
+            "photoFrame"
+        );
 
-var image=
-document.getElementById(
-"memoryImage"
-);
+    var image =
+        document.getElementById(
+            "memoryImage"
+        );
 
-var number=
-document.getElementById(
-"photoNumber"
-);
-
-
-function nextPhoto(){
-
-if(photoIndex>=photos.length){
-
-frame.classList.remove("show");
-
-frame.classList.add("hide");
-
-/*
-IMPORTANT:
-After the last picture,
-go to the letter.
-*/
-
-setTimeout(function(){
-
-showScene(5);
-
-/*
-The letter gets its own
-separate timer.
-*/
-
-setTimeout(function(){
-
-showScene(6);
-
-/*
-Then the final scene.
-
-*/
-
-setTimeout(function(){
-
-showScene(7);
-
-},8000);
-
-},10000);
-
-},1000);
-
-return;
-
-}
+    var number =
+        document.getElementById(
+            "photoNumber"
+        );
 
 
-/*
-Hide current photo.
-*/
+    function nextPhoto(){
 
-frame.classList.remove("show");
+        /*
+        ALL PHOTOS FINISHED
+        */
 
-frame.classList.add("hide");
+        if(
+            photoIndex >= photos.length
+        ){
 
+            frame.classList.remove("show");
 
-setTimeout(function(){
-
-image.src=photos[photoIndex];
-
-number.textContent=
-"MEMORY "+
-(photoIndex+1)+
-" / "+
-photos.length;
-
-frame.classList.remove("hide");
-
-frame.classList.add("show");
-
-photoIndex++;
-
-/*
-Wait 3.5 seconds before
-changing picture.
-*/
-
-setTimeout(
-nextPhoto,
-3500
-);
-
-},1000);
-
-}
+            frame.classList.add("hide");
 
 
-nextPhoto();
+            /*
+            WAIT FOR PHOTO TO FADE,
+            THEN SHOW LETTER.
+            */
+
+            setTimeout(function(){
+
+                showScene(5);
+
+                /*
+                LETTER:
+                10 SECONDS
+                */
+
+                setTimeout(function(){
+
+                    showScene(6);
+
+                    /*
+                    SKY:
+                    8 SECONDS
+                    */
+
+                    setTimeout(function(){
+
+                        showScene(7);
+
+                    },8000);
+
+                },10000);
+
+            },1200);
+
+
+            return;
+
+        }
+
+
+        /*
+        HIDE CURRENT PHOTO
+        */
+
+        frame.classList.remove("show");
+
+        frame.classList.add("hide");
+
+
+        setTimeout(function(){
+
+            /*
+            LOAD NEXT PHOTO
+            */
+
+            image.src =
+                photos[photoIndex];
+
+
+            number.textContent =
+                "MEMORY " +
+                (photoIndex + 1) +
+                " / " +
+                photos.length;
+
+
+            /*
+            SHOW NEXT PHOTO
+            */
+
+            frame.classList.remove("hide");
+
+            frame.classList.add("show");
+
+
+            photoIndex++;
+
+
+            /*
+            NEXT PHOTO
+            */
+
+            setTimeout(
+                nextPhoto,
+                3500
+            );
+
+
+        },1000);
+
+    }
+
+
+    nextPhoto();
 
 }
 
 
 /* =========================
-START
+START JOURNEY
 ========================= */
 
 function startJourney(){
 
-var start=
-document.getElementById(
-"startScreen"
-);
-
-start.classList.add("hide");
+    var start =
+        document.getElementById(
+            "startScreen"
+        );
 
 
-setTimeout(function(){
-
-start.style.display="none";
-
-},1600);
+    start.classList.add("hide");
 
 
-/*
-Opening = 7 seconds
-*/
+    setTimeout(function(){
 
-setTimeout(function(){
+        start.style.display = "none";
 
-showScene(2);
-
-},7000);
+    },1500);
 
 
-/*
-Bear = 6 seconds
-*/
+    /*
+    SCENE 1
+    OPENING
+    */
 
-setTimeout(function(){
+    setTimeout(function(){
 
-showScene(3);
+        showScene(2);
 
-},13000);
+    },7000);
 
 
-/*
-Ladybug = 7 seconds
-*/
+    /*
+    SCENE 2
+    BEAR
+    */
 
-setTimeout(function(){
+    setTimeout(function(){
 
-showScene(4);
+        showScene(3);
 
-photoIndex=0;
+    },13000);
 
-setTimeout(
-playPhotos,
-500
-);
 
-},20000);
+    /*
+    SCENE 3
+    LADYBUG
+    */
+
+    setTimeout(function(){
+
+        showScene(4);
+
+        photoIndex = 0;
+
+        playPhotos();
+
+    },20000);
 
 }
 
