@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For My Little Ladybug 🐞</title>
+<title>A Little Universe 🌙</title>
 
 <style>
 
@@ -62,7 +62,6 @@ html, body {
         opacity: .25;
         transform: scale(.6);
     }
-
     to {
         opacity: 1;
         transform: scale(1.5);
@@ -79,7 +78,6 @@ html, body {
     height: 90px;
     border-radius: 50%;
     background: #effaff;
-
     box-shadow:
         0 0 20px #d9f4ff,
         0 0 55px #62baff,
@@ -128,19 +126,16 @@ html, body {
     font-size: 27px;
     line-height: 1.5;
     font-weight: normal;
-
     text-shadow:
         0 0 15px #6dbfff,
         0 0 30px #318cff;
 }
 
 @keyframes fadeUp {
-
     from {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -153,39 +148,28 @@ html, body {
     position: absolute;
     bottom: -45px;
     left: 50%;
-
     transform: translateX(-50%);
-
     width: 130%;
     height: 130px;
-
     border-radius: 50%;
-
     background: #06152a;
-
-    box-shadow:
-        0 -10px 40px rgba(60,160,255,.25);
+    box-shadow: 0 -10px 40px rgba(60,160,255,.25);
 }
 
-/* POLAR BEAR */
+/* BEAR */
 
 .bear {
     position: absolute;
     bottom: 50px;
     left: -150px;
-
     font-size: 85px;
-
-    animation:
-        bearWalk 5s ease forwards;
+    animation: bearWalk 5s ease forwards;
 }
 
 @keyframes bearWalk {
-
     0% {
         left: -150px;
     }
-
     100% {
         left: 38%;
     }
@@ -196,19 +180,13 @@ html, body {
 .waiting {
     position: absolute;
     bottom: 175px;
-
     width: 100%;
-
     font-size: 19px;
-
     opacity: 0;
-
-    animation:
-        messageAppear 2s ease 4s forwards;
+    animation: messageAppear 2s ease 4s forwards;
 }
 
 @keyframes messageAppear {
-
     to {
         opacity: 1;
     }
@@ -218,23 +196,17 @@ html, body {
 
 .ladybug {
     position: absolute;
-
     top: 43%;
     right: -100px;
-
     font-size: 55px;
-
-    animation:
-        ladybugFly 4s ease forwards;
+    animation: ladybugFly 4s ease forwards;
 }
 
 @keyframes ladybugFly {
-
     0% {
         right: -100px;
         transform: rotate(10deg);
     }
-
     100% {
         right: 31%;
         transform: rotate(0);
@@ -245,28 +217,32 @@ html, body {
 
 .bouquet {
     position: absolute;
-
     bottom: 145px;
     right: 15%;
-
     font-size: 65px;
-
     opacity: 0;
-
-    animation:
-        bouquetAppear 2s ease 3s forwards;
+    animation: bouquetAppear 2s ease 3s forwards;
 }
 
 @keyframes bouquetAppear {
-
     from {
         opacity: 0;
         transform: scale(.4);
     }
-
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes albumOpen {
+    from {
+        opacity: 0;
+        transform: rotate(-7deg) scale(.5);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(-1deg) scale(1);
     }
 }
 
@@ -275,7 +251,6 @@ html, body {
 .album {
     width: 88%;
     max-width: 390px;
-
     max-height: 85vh;
     overflow-y: auto;
 
@@ -286,28 +261,9 @@ html, body {
 
     border-radius: 14px;
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.7);
+    box-shadow: 0 20px 60px rgba(0,0,0,.7);
 
-    animation:
-        albumOpen 2s ease forwards;
-}
-
-@keyframes albumOpen {
-
-    from {
-        opacity: 0;
-        transform:
-            rotate(-7deg)
-            scale(.5);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            rotate(-1deg)
-            scale(1);
-    }
+    animation: albumOpen 2s ease forwards;
 }
 
 .album h2 {
@@ -319,24 +275,17 @@ html, body {
 
 .memory-photo {
     width: 100%;
-
     margin: 14px 0;
-
     padding: 5px;
-
     background: white;
-
     border-radius: 7px;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.25);
+    box-shadow: 0 5px 15px rgba(0,0,0,.25);
 }
 
 .memory-photo img {
     width: 100%;
-
+    height: auto;
     display: block;
-
     border-radius: 4px;
 }
 
@@ -345,7 +294,6 @@ html, body {
 .letter {
     width: 88%;
     max-width: 420px;
-
     max-height: 82vh;
     overflow-y: auto;
 
@@ -356,27 +304,19 @@ html, body {
 
     border-radius: 9px;
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.7);
+    box-shadow: 0 20px 60px rgba(0,0,0,.7);
 
-    animation:
-        letterOpen 2s ease forwards;
+    animation: letterOpen 2s ease forwards;
 }
 
 @keyframes letterOpen {
-
     from {
         opacity: 0;
-        transform:
-            scale(.7)
-            rotate(-4deg);
+        transform: scale(.7) rotate(-4deg);
     }
-
     to {
         opacity: 1;
-        transform:
-            scale(1)
-            rotate(-1deg);
+        transform: scale(1) rotate(-1deg);
     }
 }
 
@@ -398,15 +338,10 @@ html, body {
 
 .skyText {
     width: 85%;
-
     font-size: 22px;
     line-height: 1.8;
-
-    text-shadow:
-        0 0 18px #6dbfff;
-
-    animation:
-        fadeUp 3s ease;
+    text-shadow: 0 0 18px #6dbfff;
+    animation: fadeUp 3s ease;
 }
 
 /* FINAL */
@@ -417,63 +352,51 @@ html, body {
 
 .finalWord {
     font-size: 48px;
-
     letter-spacing: 7px;
-
     color: #e2f7ff;
 
     text-shadow:
         0 0 15px #73c8ff,
         0 0 45px #318cff;
 
-    animation:
-        finalGlow 3s infinite alternate;
+    animation: finalGlow 3s infinite alternate;
 }
 
 .finalText {
     margin-top: 22px;
-
     width: 85%;
-
     color: #a9d9ff;
-
     font-size: 16px;
     line-height: 1.7;
 }
 
 @keyframes finalGlow {
-
     from {
         opacity: .55;
         transform: scale(.97);
     }
-
     to {
         opacity: 1;
         transform: scale(1.04);
     }
 }
 
-/* MUSIC */
+/* MUSIC BUTTON */
 
 .musicButton {
     position: fixed;
-
     bottom: 20px;
     right: 20px;
 
-    z-index: 50;
+    z-index: 100;
 
     width: auto;
-
     padding: 10px 16px;
 
     border-radius: 30px;
-
     border: 1px solid #58baff;
 
     background: rgba(8,15,48,.9);
-
     color: white;
 
     font-size: 13px;
@@ -483,14 +406,10 @@ html, body {
 
 .float {
     position: absolute;
-
     bottom: -30px;
-
     font-size: 22px;
 
-    animation:
-        floatUp 6s linear infinite;
-
+    animation: floatUp 6s linear infinite;
     opacity: 0;
 }
 
@@ -509,7 +428,6 @@ html, body {
 }
 
 @keyframes floatUp {
-
     0% {
         transform: translateY(0);
         opacity: 0;
@@ -613,7 +531,7 @@ A little surprise for a very special day. ✨
 </section>
 
 
-<!-- SCENE 4 -->
+<!-- SCENE 4: MEMORIES -->
 
 <section class="page" id="scene4">
 
@@ -625,56 +543,47 @@ Our Little Memories 🌙🐞
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/IMG-20250819-WA0020.jpg"
-alt="Memory 1">
+<img src="IMG-20250819-WA0020.jpg" alt="Memory 1">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-1267893355.jpg"
-alt="Memory 2">
+<img src="Snapchat-1267893355.jpg" alt="Memory 2">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-1737000413.jpg"
-alt="Memory 3">
+<img src="Snapchat-1737000413.jpg" alt="Memory 3">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-193420270.jpg"
-alt="Memory 4">
+<img src="Snapchat-193420270.jpg" alt="Memory 4">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-21432401.jpg"
-alt="Memory 5">
+<img src="Snapchat-21432401.jpg" alt="Memory 5">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-55540618.jpg"
-alt="Memory 6">
+<img src="Snapchat-55540618.jpg" alt="Memory 6">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-578601478.jpg"
-alt="Memory 7">
+<img src="Snapchat-578601478.jpg" alt="Memory 7">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-652614665.jpg"
-alt="Memory 8">
+<img src="Snapchat-652614665.jpg" alt="Memory 8">
 </div>
 
 
 <div class="memory-photo">
-<img src="https://mkookie986-cmd.github.io/our-little-universe/images/Snapchat-969088174.jpg"
-alt="Memory 9">
+<img src="Snapchat-969088174.jpg" alt="Memory 9">
 </div>
 
 
@@ -687,7 +596,7 @@ A few moments worth keeping forever. ✨
 </section>
 
 
-<!-- SCENE 5 -->
+<!-- SCENE 5: LETTER -->
 
 <section class="page" id="scene5">
 
@@ -797,7 +706,7 @@ Happy Birthday, little ladybug. 🐞💙
 <div class="float f3">✦</div>
 
 
-<!-- MUSIC BUTTON -->
+<!-- MUSIC -->
 
 <button class="musicButton" onclick="toggleMusic()">
 🎵 Music
@@ -814,15 +723,13 @@ Happy Birthday, little ladybug. 🐞💙
 
 function showScene(number) {
 
-var scenes =
-document.querySelectorAll(".page");
+var scenes = document.querySelectorAll(".page");
 
 for (var i = 0; i < scenes.length; i++) {
     scenes[i].classList.remove("active");
 }
 
-var next =
-document.getElementById("scene" + number);
+var next = document.getElementById("scene" + number);
 
 if (next) {
     next.classList.add("active");
@@ -860,16 +767,15 @@ setTimeout(function() {
 
 /* MUSIC */
 
-var music =
-document.getElementById("birthdayMusic");
+var music = document.getElementById("birthdayMusic");
 
 function toggleMusic() {
 
-if (music.paused) {
-    music.play();
-} else {
-    music.pause();
-}
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
 
 }
 
